@@ -3,6 +3,11 @@ nexiles gateway app template
 
 This repository contains template code for nexiles gateway apps.
 
+Documentation
+-------------
+
+Please see the documentation_ for more info.
+
 Tools
 -----
 
@@ -66,3 +71,5 @@ Repo Layout
 
 **static/{ext,overrides,packages,build}**
 	ExtJS managed
+
+.. _documentation: http://nexiles.github.io/nexiles.gateway-app-template/
