@@ -1,4 +1,4 @@
-.. _quickinstall-mac:
+.. _quickinstall-win:
 
 Quickinstall (Windows)
 ======================
@@ -39,8 +39,11 @@ Node.js
 
 Install Node_ and the node package manager `npm`::
 
-	C:> choco install nodejs
-	C:> choco install npm
+	C:> choco install nodejs.install
+
+Close and reopen the shell, and::
+
+	C:> npm install -g grunt-cli
 
 Python Setup
 ~~~~~~~~~~~~
@@ -129,6 +132,8 @@ Clone the template repository, cd into the repo and do::
 	C:> virtualenv .
 	C:> Scripts\activate
 	C:> pip install -r requirements-windows.txt
+
+XXX: Sencha Initialization Missing
 
 First Build
 -----------

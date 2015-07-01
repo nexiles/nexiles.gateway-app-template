@@ -18,6 +18,7 @@ Install tools::
 
 	$ brew install python
 	$ brew install node
+	$ npm install -g grunt-cli
 
 Python packages::
 
@@ -93,6 +94,8 @@ Clone the template repository, cd into the repo and do::
 	$ . ./bin/activate
 	$ pip install -r requirements.txt
 
+XXX: Sencha Initialization Missing
+
 First Build
 -----------
 
@@ -114,6 +117,7 @@ Change directory to the repo dir and do::
 
 
 .. _Homebrew: http://brew.sh/
+.. _Node: https://nodejs.org/
 .. _virtualenv: https://virtualenv.pypa.io/en/latest/
 .. _ExtJS: https://www.sencha.com/products/extjs/
 .. _Sencha Command: https://www.sencha.com/products/extjs/#sencha-cmd
