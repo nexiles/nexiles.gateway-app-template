@@ -13,6 +13,7 @@ Contents
    quickinstall-windows
    development
    maintainer_tasks
+   license
    changelog
 
 
