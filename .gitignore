@@ -14,3 +14,4 @@ gateway-app-template.sublime-workspace
 static/app
 *.pyc
 static/sass/example/bootstrap.json
+_build
