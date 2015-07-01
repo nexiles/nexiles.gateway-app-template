@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Maintainer Tasks &mdash; nexiles.gateway app template 0.1.0dev documentation</title>
+    <title>Change Log &mdash; nexiles.gateway app template 0.1.0dev documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,8 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="nexiles.gateway app template 0.1.0dev documentation" href="index.html" />
-    <link rel="next" title="Change Log" href="changelog.html" />
-    <link rel="prev" title="Quickinstall (Windows)" href="quickinstall-windows.html" />
+    <link rel="prev" title="Maintainer Tasks" href="maintainer_tasks.html" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
@@ -38,29 +37,15 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="maintainer-tasks">
-<span id="id1"></span><h1>Maintainer Tasks<a class="headerlink" href="#maintainer-tasks" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="abstract">
-<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
-<p>Documentation for package maintainer related tasks.</p>
-</div>
-<div class="section" id="pushing-documentation-to-github">
-<h2>Pushing Documentation to GitHub<a class="headerlink" href="#pushing-documentation-to-github" title="Permalink to this headline">¶</a></h2>
-<p>Source: <a class="reference external" href="http://daler.github.io/sphinxdoc-test/includeme.html">http://daler.github.io/sphinxdoc-test/includeme.html</a></p>
-<p>You need to have the neccessary setup as detailled in the link above.  The gh-pages branch
-is assumed to be checked out <strong>next</strong> to this repo, named <cite>nexiles.gateway-app-template-docs</cite>.</p>
-<p>There&#8217;s a fabric task for pushing everything to gh-pages.  This will <strong>automatically</strong> commit and
-push, but <strong>only the generated HTML on the gh-pages branch</strong>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ workon nexiles.gateway-app-template
-$ fab release_docs
-</pre></div>
-</div>
-<p>Please make sure to check the docs using:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ workon nexiles.gateway-app-template
-$ fab docs
-</pre></div>
-</div>
-<p>Look for warnings in the console, and visually check formatting.</p>
+  <div class="section" id="change-log">
+<span id="changelog"></span><h1>Change Log<a class="headerlink" href="#change-log" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="unreleased">
+<h2>0.1.0 - unreleased<a class="headerlink" href="#unreleased" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Initial build system setup</li>
+<li>Initial app template package code</li>
+<li>Initial documentation</li>
+</ul>
 </div>
 </div>
 
@@ -75,9 +60,8 @@ $ fab docs
             </a></p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Maintainer Tasks</a><ul>
-<li><a class="reference internal" href="#abstract">Abstract</a></li>
-<li><a class="reference internal" href="#pushing-documentation-to-github">Pushing Documentation to GitHub</a></li>
+<li><a class="reference internal" href="#">Change Log</a><ul>
+<li><a class="reference internal" href="#unreleased">0.1.0 - unreleased</a></li>
 </ul>
 </li>
 </ul>
@@ -85,15 +69,14 @@ $ fab docs
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="quickinstall-windows.html" title="previous chapter">Quickinstall (Windows)</a></li>
-      <li>Next: <a href="changelog.html" title="next chapter">Change Log</a></li>
+      <li>Previous: <a href="maintainer_tasks.html" title="previous chapter">Maintainer Tasks</a></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/maintainer_tasks.txt"
+      <li><a href="_sources/changelog.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -122,7 +105,7 @@ $ fab docs
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
       
       |
-      <a href="_sources/maintainer_tasks.txt"
+      <a href="_sources/changelog.txt"
           rel="nofollow">Page source</a>
     </div>
 
