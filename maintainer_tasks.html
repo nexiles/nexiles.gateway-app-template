@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Introduction &mdash; nexiles.gateway app template 0.1.0dev documentation</title>
+    <title>Maintainer Tasks &mdash; nexiles.gateway app template 0.1.0dev documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -37,63 +37,22 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="introduction">
-<span id="id1"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="what">
-<h2>What?<a class="headerlink" href="#what" title="Permalink to this headline">¶</a></h2>
-<p>This is a the nexiles app template which we use to develop apps for <a class="reference external" href="http://www.ptc-solutions.de/produkte/ptc-windchill/ptc-windchill-102.html">PTC Windchill</a>
-using our <a class="reference external" href="http://nexiles.com/products">nexiles gateway</a> interface.</p>
-<p>This template contains code and build scripts, and this documentation.</p>
-<img alt="_images/screenshot.png" src="_images/screenshot.png" />
+  <div class="section" id="maintainer-tasks">
+<span id="id1"></span><h1>Maintainer Tasks<a class="headerlink" href="#maintainer-tasks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
+<p>Documentation for package maintainer related tasks.</p>
 </div>
-<div class="section" id="features">
-<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">These are features of the template project, not <a class="reference external" href="http://nexiles.com/products">nexiles gateway</a> features.</p>
+<div class="section" id="pushing-documentation-to-github">
+<h2>Pushing Documentation to GitHub<a class="headerlink" href="#pushing-documentation-to-github" title="Permalink to this headline">¶</a></h2>
+<p>Source: <a class="reference external" href="http://daler.github.io/sphinxdoc-test/includeme.html">http://daler.github.io/sphinxdoc-test/includeme.html</a></p>
+<p>There&#8217;s a fabric task:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ workon nexiles.gateway-app-template
+$ fab release_docs
+</pre></div>
 </div>
-<ul class="simple">
-<li>Fully automated build</li>
-<li>Beautiful documentation</li>
-<li>Live reloading during development for instant feedback</li>
-<li>Hooks and examples for accessing <a class="reference external" href="http://www.ptc-solutions.de/produkte/ptc-windchill/ptc-windchill-102.html">PTC Windchill</a> using <a class="reference external" href="http://nexiles.com/products">nexiles gateway</a></li>
-</ul>
-</div>
-<div class="section" id="why">
-<h2>Why?<a class="headerlink" href="#why" title="Permalink to this headline">¶</a></h2>
-<p>Usually, <a class="reference external" href="http://www.ptc-solutions.de/produkte/ptc-windchill/ptc-windchill-102.html">PTC Windchill</a> extensions (or <em>customizations</em>) are coded in
-Java, and the UI is done by customizing the <a class="reference external" href="http://www.ptc-solutions.de/produkte/ptc-windchill/ptc-windchill-102.html">PTC Windchill</a> UI directly.</p>
-<p>While this is fine for one-off projects, we find that the mainenance cost
-of this approach is too high.</p>
-<p>Using nexiles.gateway, we separate UI (front-end) from business logic (back-end),
-and thus free ourselves (and the customer) from the restrictions and maintenance
-overhead imposed by the normal customization approach.</p>
-<p>Additionally, using nexiles.gateway allows us to use the dynamic programming language
-<a class="reference external" href="http://www.python.org">Python</a>, which allows to use a more agile and interactive development process.  This
-gives us and our customers a great advantage wrt. time-to-market and development costs,
-as well as very quick iteration cycles.</p>
-<p>For more information, contact <a class="reference external" href="mailto:info&#37;&#52;&#48;nexiles&#46;com?subject=nexiles&#46;gateway%20apps%20request%20for%20information&amp;cc=se&#37;&#52;&#48;nexiles&#46;de">us</a>.</p>
-</div>
-<div class="section" id="tools-prerequisites">
-<h2>Tools, Prerequisites<a class="headerlink" href="#tools-prerequisites" title="Permalink to this headline">¶</a></h2>
-<p>This template application uses <a class="reference external" href="https://www.sencha.com/products/extjs/">ExtJS</a> for the UI, and the code is developed in <a class="reference external" href="http://coffeescript.org/">CoffeeScript</a>.  The
-documentation is written and published using <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a>.  The build automation uses <a class="reference external" href="http://www.fabfile.org/">Fabric</a>, a build tool
-for <a class="reference external" href="http://www.python.org">Python</a>.</p>
-<p>The <a class="reference external" href="http://coffeescript.org/">CoffeeScript</a> to JavaScript compiling, live reloading etc uses <a class="reference external" href="http://gruntjs.com/">Grunt</a>.</p>
-<p>To sum up, the prerequisites for building this project are:</p>
-<ul class="simple">
-<li><a class="reference external" href="https://nodejs.org/">Node</a></li>
-<li><a class="reference external" href="http://www.python.org">Python</a></li>
-<li><a class="reference external" href="https://www.sencha.com/products/extjs/">ExtJS</a> &#8211; the GPL version is sufficient</li>
-</ul>
-<p>And, if you want to actually test against <a class="reference external" href="http://www.ptc-solutions.de/produkte/ptc-windchill/ptc-windchill-102.html">PTC Windchill</a>:</p>
-<ul>
-<li><p class="first">Access to <a class="reference external" href="http://www.ptc-solutions.de/produkte/ptc-windchill/ptc-windchill-102.html">PTC Windchill</a> with installed <a class="reference external" href="http://nexiles.com/products">nexiles gateway</a>.  You do <strong>NOT</strong> need
-file system or administrator rights.  A normal user account is enough.  You need to be
-able to create and iterate documents (<cite>WTDocuments</cite>).</p>
-<p>For more information, contact <a class="reference external" href="mailto:info&#37;&#52;&#48;nexiles&#46;com?subject=nexiles&#46;gateway%20apps%20request%20for%20information&amp;cc=se&#37;&#52;&#48;nexiles&#46;de">us</a>.</p>
-</li>
-</ul>
+<p>You need to have the neccessary setup as detailled in the link above.  The gh-pages branch
+is assumed to be checked out <strong>next</strong> to this repo, named <cite>nexiles.gateway-app-template-docs</cite>.</p>
 </div>
 </div>
 
@@ -108,11 +67,9 @@ able to create and iterate documents (<cite>WTDocuments</cite>).</p>
             </a></p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Introduction</a><ul>
-<li><a class="reference internal" href="#what">What?</a></li>
-<li><a class="reference internal" href="#features">Features</a></li>
-<li><a class="reference internal" href="#why">Why?</a></li>
-<li><a class="reference internal" href="#tools-prerequisites">Tools, Prerequisites</a></li>
+<li><a class="reference internal" href="#">Maintainer Tasks</a><ul>
+<li><a class="reference internal" href="#abstract">Abstract</a></li>
+<li><a class="reference internal" href="#pushing-documentation-to-github">Pushing Documentation to GitHub</a></li>
 </ul>
 </li>
 </ul>
