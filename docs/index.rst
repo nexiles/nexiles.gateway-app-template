@@ -2,6 +2,9 @@
 Welcome to nexiles.gateway app template's documentation!
 ========================================================
 
+:version: |version|
+:release: |release|
+
 Contents
 ========
 
