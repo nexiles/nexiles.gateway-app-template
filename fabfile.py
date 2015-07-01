@@ -23,7 +23,23 @@ static_dir      = os.path.join(project_root, "static")
 src_dir         = os.path.join(project_root, "src")
 
 ######################################################################
-# Tasks
+# Package Maintainer Tasks
+######################################################################
+
+
+@task
+def release_docs():
+    "builds the documentation and pushes it to GitHub"
+    execute(build_docs)
+    print(green("Pushing to GitHub ..."))
+    with settings(hide("stdout", "running")):
+        with lcd(docs_dir):
+            local("make gh_pages")
+            local("make gh_pages_sync")
+
+
+######################################################################
+# Developer Tasks
 ######################################################################
 
 
