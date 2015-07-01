@@ -1,27 +1,64 @@
 .. _quickinstall-mac:
 
-Quickinstall (Apple Mac)
-========================
+Quickinstall (Windows)
+======================
 
 Abstract
 --------
 
 This is the **quick installation** documentation.  This is a tersely written documentation for experienced
-developers.  This documentation targets developers using **Apple Mac** computers.
+developers.  This documentation targets developers using **Windows** computers.
+
+Unfortunately, the Fabric_ tools is not supported on Windows, so you need to do build steps manually.  But they're
+easy and you can always create some bat files.
+
+.. note:: Windows is not the author's main development platform.  If you spot some errors, stupidity or have comments
+   please contact me_.
+
 
 Installing Prerequisites
 ------------------------
 
-Install Homebrew_ -- this is a prerequisite, for more information see their web site.
+.. note:: I use Chokolatey_ -- This is very opinionated, and you need admin access to your machine.  If you
+   know a better/alternate way contact me_, or please issue a pull request on GitHub.
+
+Install Chokolatey_ -- this makes installing tools on Windows actually bearable.
+
+.. note:: Please make **sure** you use Chokolatey_ in a **admin shell**.
 
 Install tools::
 
-	$ brew install python
-	$ brew install node
+	C:> choco install git
+
+Optionally install GOW_ -- a light-weight set of UNIX like tools::
+
+	C:> choco install GOW
+
+Node.js
+~~~~~~~
+
+Install Node_ and the node package manager `npm`::
+
+	C:> choco install nodejs
+	C:> choco install npm
+
+Python Setup
+~~~~~~~~~~~~
+
+Install Python::
+
+	C:> choco install python2
+
+At the time of this writing, Chokolatey_ installs Python_ to `C:/tools/python2.x.x` and adds this directory
+to the `PATH`.  But unfortunately, it doesn't add the `Scripts` directory within the python installation to the
+`PATH`.  Make **sure** thyt you correct thos before you continue.
 
 Python packages::
 
-	$ pip install virtualenv
+	C:> pip install virtualenv
+
+ExtJs
+~~~~~
 
 ExtJs_ -- we need `Sencha Command`_ to build apps.  Please follow the instructions there to install
 the tool.  Pleas make sure to use ExtJs_ version **5.x**.  On my machine, `sencha` gives me the following
@@ -89,9 +126,9 @@ Clone Template, First Time Setup
 
 Clone the template repository, cd into the repo and do::
 
-	$ virtualenv .
-	$ . ./bin/activate
-	$ pip install -r requirements.txt
+	C:> virtualenv .
+	C:> Scripts\activate
+	C:> pip install -r requirements-windows.txt
 
 First Build
 -----------
@@ -100,22 +137,16 @@ Always activate the virtualenv_!
 
 Change directory to the repo dir and do::
 
-	$ . ./bin/activate
-	$ fab
-	Building for production
-	   installing node modules ...
-	   compiling CoffeScript ...
-	   building app ...
-	Packaging app (production)
-	Built package: /Users/seletz/develop/nexiles/nexiles.gateway-app-template/build/AppTemplate-production.zip .
-	Building documentation
-
-	Done.
+	C:> Scripts\activate
+	C:> npm install
+	C:> grunt build
 
 
-.. _Homebrew: http://brew.sh/
+.. _Chokolatey: https://chocolatey.org/
+.. _GOW: https://github.com/bmatzelle/gow/wiki
 .. _virtualenv: https://virtualenv.pypa.io/en/latest/
 .. _ExtJS: https://www.sencha.com/products/extjs/
+.. _Node: https://nodejs.org/
 .. _Sencha Command: https://www.sencha.com/products/extjs/#sencha-cmd
 .. _Grunt: http://gruntjs.com/
 .. _CoffeeScript: http://coffeescript.org/
@@ -125,3 +156,4 @@ Change directory to the repo dir and do::
 .. _nexiles gateway: http://nexiles.com/products
 .. _PTC Windchill: http://www.ptc-solutions.de/produkte/ptc-windchill/ptc-windchill-102.html
 .. _us: mailto:info@nexiles.com?subject=nexiles.gateway%20apps%20request%20for%20information&cc=se@nexiles.de
+.. _me: mailto:se@nexiles.com?subject=nexiles.gateway%20apps%20windows%20comments
