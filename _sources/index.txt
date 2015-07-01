@@ -12,6 +12,7 @@ Contents
    quickinstall-mac
    quickinstall-windows
    development
+   maintainer_tasks
    changelog
 
 
