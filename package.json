@@ -1,6 +1,7 @@
 {
   "name": "AppTemplate",
   "description": "nexiles gateway app template",
+  "license": "BSD-2-Clause",
   "repository": "git@github.com:nexiles/nexiles.gateway-app-template.git",
   "devDependencies": {
     "async": "^0.9.0",
