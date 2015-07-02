@@ -11,7 +11,7 @@ from fabric.context_managers import hide
 from fabric.colors import red, green, yellow
 
 
-os.environ["SENCHA_VERSION"] = "5.1.3.61"
+os.environ["SENCHA_VERSION"] = "6.0.0.202"
 
 APP_NAME = "AppTemplate"
 
@@ -42,6 +42,25 @@ def release_docs():
 # Developer Tasks
 ######################################################################
 
+
+@task
+def init():
+    "Initialize freshly checked-out repo"
+    print(green("Initializing repo"))
+    with settings(hide("stdout", "running")):
+        with lcd(project_root):
+            print(green("    Installing node modules ..."))
+            local("npm install")
+
+            print(green("    Compiling coffee scripts ..."))
+            local("grunt coffee")
+
+            print(green("    Initializing sencha framework ..."))
+            local("sencha generate app -ext {} static".format(APP_NAME))
+
+        with lcd(static_dir):
+            print(green("    Building application ..."))
+            local("sencha app build".format(APP_NAME))
 
 @task(default=True)
 def full_monty():
