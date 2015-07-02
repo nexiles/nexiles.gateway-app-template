@@ -3,10 +3,12 @@
 Change Log
 ==========
 
-0.3.0 - unreleased
+0.3.0 - 2015-07-02
 ------------------
 
-No changes yet.
+- Solve ExtJS repo initialization problems.
+- Added fabric tasks for serving and intitializing.
+- Added development chapter.
 
 0.2.0 - 2015-07-02
 ------------------
