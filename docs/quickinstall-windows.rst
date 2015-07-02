@@ -1,4 +1,4 @@
-.. _quickinstall-win:
+.. _quickinstall_win:
 
 Quickinstall (Windows)
 ======================

@@ -1,4 +1,4 @@
-.. _quickinstall-mac:
+.. _quickinstall_mac:
 
 Quickinstall (Apple Mac)
 ========================
