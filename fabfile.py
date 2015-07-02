@@ -78,12 +78,17 @@ def init():
 
 
 @task
-def serve(port=8000):
+def serve(port=8000, production=False):
     "Serves the app locally for testing"
-    os.chdir(static_dir)
     Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
     httpd = SocketServer.TCPServer(("", port), Handler)
     webbrowser.open("http://localhost:{}".format(port))
+    if not production:
+        print(green("Serving DEVELOPMENT on http://localhost:{}".format(port)))
+        os.chdir(static_dir)
+    else:
+        print(green("Serving PRODUCTION on http://localhost:{}".format(port)))
+        os.chdir(os.path.join(static_dir, "build", "production", APP_NAME))
     httpd.serve_forever()
 
 
