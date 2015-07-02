@@ -3,7 +3,7 @@
 Change Log
 ==========
 
-0.2.0 - unreleased
+0.2.0 - 2015-07-02
 ------------------
 
 - Switch to ExtJS 6 to make installation procedure easier.
