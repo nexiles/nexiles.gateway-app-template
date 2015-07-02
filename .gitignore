@@ -13,5 +13,8 @@ node_modules
 gateway-app-template.sublime-workspace
 static/app
 static/sass/
+static/classic/
+static/modern/
+static/Readme.md
 *.pyc
 _build
