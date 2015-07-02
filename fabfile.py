@@ -1,6 +1,8 @@
 import os
 
 import webbrowser
+import SocketServer
+import SimpleHTTPServer
 
 from fabric.api import task
 from fabric.api import execute
@@ -73,6 +75,17 @@ def init():
         with lcd(static_dir):
             print(green("    Building application ..."))
             local("sencha app build".format(APP_NAME))
+
+
+@task
+def serve(port=8000):
+    "Serves the app locally for testing"
+    os.chdir(static_dir)
+    Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
+    httpd = SocketServer.TCPServer(("", port), Handler)
+    webbrowser.open("http://localhost:{}".format(port))
+    httpd.serve_forever()
+
 
 @task(default=True)
 def full_monty():
