@@ -57,7 +57,7 @@ To sum up, the prerequisites for building this project are:
 
 - Node_
 - Python_
-- ExtJS_ -- the GPL version is sufficient
+- ExtJS_ -- the `ExtJS GPL version`_ is sufficient
 
 And, if you want to actually test against `PTC Windchill`_:
 
@@ -68,6 +68,7 @@ And, if you want to actually test against `PTC Windchill`_:
   For more information, contact us_.
 
 .. _ExtJS: https://www.sencha.com/products/extjs/
+.. _ExtJS GPL version: https://www.sencha.com/legal/GPL/
 .. _Grunt: http://gruntjs.com/
 .. _Node: https://nodejs.org/
 .. _CoffeeScript: http://coffeescript.org/
