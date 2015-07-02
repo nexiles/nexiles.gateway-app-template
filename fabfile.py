@@ -22,6 +22,12 @@ build_dir       = os.path.join(project_root, "build")
 static_dir      = os.path.join(project_root, "static")
 src_dir         = os.path.join(project_root, "src")
 
+ext_sdk_dir     = os.path.expanduser("~/develop/js/Sencha/ext-6.0.0")
+if not os.path.exists(ext_sdk_dir):
+    # Will use trial version.
+    ext_sdk_dir = None
+
+
 ######################################################################
 # Package Maintainer Tasks
 ######################################################################
@@ -56,7 +62,13 @@ def init():
             local("grunt coffee")
 
             print(green("    Initializing sencha framework ..."))
-            local("sencha generate app -ext {} static".format(APP_NAME))
+            if ext_sdk_dir:
+                local("sencha -sdk {} generate app -ext {} static".format(
+                    ext_sdk_dir, APP_NAME))
+            else:
+                print(yellow("    SDK directory not configured, "
+                             "using TRIAL VERSION of ExtJS"))
+                local("sencha generate app -ext {} static".format(APP_NAME))
 
         with lcd(static_dir):
             print(green("    Building application ..."))
