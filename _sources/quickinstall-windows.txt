@@ -1,4 +1,4 @@
-.. _quickinstall-win:
+.. _quickinstall_win:
 
 Quickinstall (Windows)
 ======================
@@ -135,6 +135,9 @@ Clone the template repository, cd into the repo and do::
 	C:> virtualenv .
 	C:> Scripts\activate
 	C:> pip install -r requirements-windows.txt
+	C:> npm install
+
+This needs to be done only **once**.
 
 ExtJS Framework Setup
 ~~~~~~~~~~~~~~~~~~~~~
@@ -156,7 +159,6 @@ Always activate the virtualenv_!
 Change directory to the repo dir and do::
 
 	C:> Scripts\activate
-	C:> npm install
 	C:> grunt build
 
 

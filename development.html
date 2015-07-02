@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Development &mdash; nexiles.gateway app template 0.3.0 build 45 date 2015-7-2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.3.0 build 45 date 2015-7-2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="nexiles.gateway app template 0.3.0 build 45 date 2015-7-2 documentation" href="index.html" />
+    <link rel="next" title="Maintainer Tasks" href="maintainer_tasks.html" />
+    <link rel="prev" title="Quickinstall (Windows)" href="quickinstall-windows.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="development">
+<span id="id1"></span><h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
+<p>This chapter introduces and documents common developer tasks.</p>
+<p>Please make sure that you set up your development environment correctly as detailled in <a class="reference internal" href="quickinstall-mac.html#quickinstall-mac"><span>Quickinstall (Apple Mac)</span></a> or <a class="reference internal" href="quickinstall-windows.html#quickinstall-win"><span>Quickinstall (Windows)</span></a>.</p>
+</div>
+<div class="section" id="virtualenv">
+<h2>Virtualenv<a class="headerlink" href="#virtualenv" title="Permalink to this headline">¶</a></h2>
+<p>All the shell commands listed here assume that you activated your <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>.</p>
+</div>
+<div class="section" id="building-the-app">
+<h2>Building the App<a class="headerlink" href="#building-the-app" title="Permalink to this headline">¶</a></h2>
+<p>On a Mac, do:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ fab build
+</pre></div>
+</div>
+<p>On Windows, do:</p>
+<div class="highlight-python"><div class="highlight"><pre>C:&gt; grunt build
+</pre></div>
+</div>
+<p>Both commands will rebuild the App, which involves:</p>
+<ul class="simple">
+<li>Compiling CoffeeScript to JavaScript</li>
+<li>Regenerating the ExtJS Theme</li>
+</ul>
+</div>
+<div class="section" id="creating-a-production-build">
+<h2>Creating a <em>production</em> build<a class="headerlink" href="#creating-a-production-build" title="Permalink to this headline">¶</a></h2>
+<p>On a Mac, the <cite>build</cite> task defaults to production mode:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ fab build
+</pre></div>
+</div>
+<p>On Windows, do:</p>
+<div class="highlight-python"><div class="highlight"><pre>C:&gt; grunt coffee
+C:&gt; cd static
+C:&gt; sencha app build production
+</pre></div>
+</div>
+<p>The minimized, compacted build will be placed in the <cite>build</cite> folder
+in the <cite>static</cite> directory.</p>
+</div>
+<div class="section" id="serving-the-web-app-locally-for-development">
+<h2>Serving the Web App locally for development<a class="headerlink" href="#serving-the-web-app-locally-for-development" title="Permalink to this headline">¶</a></h2>
+<p>On a Mac this will serve the development version and open a webbrowser
+with the correct URL:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ fab serve
+</pre></div>
+</div>
+<p>On Windows:</p>
+<div class="highlight-python"><div class="highlight"><pre>C:&gt; cd static
+C:&gt; python -m SimpleHTTPServer
+</pre></div>
+</div>
+<p>And open <a class="reference external" href="http://localhost:8000">http://localhost:8000</a> in a web browser.</p>
+</div>
+<div class="section" id="developing-and-live-reloading">
+<h2>Developing and Live Reloading<a class="headerlink" href="#developing-and-live-reloading" title="Permalink to this headline">¶</a></h2>
+<p>This setup needs two shells:</p>
+<ul class="simple">
+<li>One shell to watch for changes and compile&amp;reload them</li>
+<li>One shell to serve the application</li>
+</ul>
+<p>Watching (same for Mac and Windows):</p>
+<div class="highlight-python"><div class="highlight"><pre>grunt watch
+</pre></div>
+</div>
+<p>For Serving (2nd shell), see above.</p>
+<p>This will have <a class="reference external" href="http://gruntjs.com/">Grunt</a> watch for file changes in the source directory.  <a class="reference external" href="http://gruntjs.com/">Grunt</a> will
+recompile changed files and reload them by <em>pushing</em> the changes directly to the browser
+using web sockets.  For this to work, your browser needs to support web sockets.  We
+use Google Chrome.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/iconmonstr-wrench-6-icon-128.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Development</a><ul>
+<li><a class="reference internal" href="#abstract">Abstract</a></li>
+<li><a class="reference internal" href="#virtualenv">Virtualenv</a></li>
+<li><a class="reference internal" href="#building-the-app">Building the App</a></li>
+<li><a class="reference internal" href="#creating-a-production-build">Creating a <em>production</em> build</a></li>
+<li><a class="reference internal" href="#serving-the-web-app-locally-for-development">Serving the Web App locally for development</a></li>
+<li><a class="reference internal" href="#developing-and-live-reloading">Developing and Live Reloading</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="quickinstall-windows.html" title="previous chapter">Quickinstall (Windows)</a></li>
+      <li>Next: <a href="maintainer_tasks.html" title="next chapter">Maintainer Tasks</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/development.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Stefan Eletzhofer.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/development.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/nexiles/nexiles.gateway-app-template" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

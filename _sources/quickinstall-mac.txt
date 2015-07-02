@@ -1,4 +1,4 @@
-.. _quickinstall-mac:
+.. _quickinstall_mac:
 
 Quickinstall (Apple Mac)
 ========================
@@ -96,20 +96,19 @@ Clone the template repository, cd into the repo and do::
 	$ virtualenv .
 	$ . ./bin/activate
 	$ pip install -r requirements.txt
+	$ fab init
+	Initializing repo
+	    Installing node modules ...
+	    Compiling coffee scripts ...
+	    Initializing sencha framework ...
+	    Building application ...
 
-ExtJS Framework Setup
-~~~~~~~~~~~~~~~~~~~~~
+	Done.
 
-Due to the size of the ExtJS_ framework, we don't include it in the repository.  Use `Sencha Command`_ to
-create a initial empty app.  To do so. cd into the repo and::
+This needs to be done only **once**.
 
-	$ grunt coffee
-	$ sencha generate app -ext AppTemplate static
-
-This will populate the `static/ext` directory with the needed framework files.
-
-First Build
------------
+Build Application
+-----------------
 
 Always activate the virtualenv_!
 

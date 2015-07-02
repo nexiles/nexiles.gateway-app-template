@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Quickinstall (Apple Mac) &mdash; nexiles.gateway app template 0.2.0 build 45 date 2015-7-2 documentation</title>
+    <title>Quickinstall (Apple Mac) &mdash; nexiles.gateway app template 0.3.0 build 45 date 2015-7-2 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.2.0 build 45 date 2015-7-2',
+        VERSION:     '0.3.0 build 45 date 2015-7-2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="nexiles.gateway app template 0.2.0 build 45 date 2015-7-2 documentation" href="index.html" />
+    <link rel="top" title="nexiles.gateway app template 0.3.0 build 45 date 2015-7-2 documentation" href="index.html" />
     <link rel="next" title="Quickinstall (Windows)" href="quickinstall-windows.html" />
     <link rel="prev" title="Introduction" href="introduction.html" />
    
@@ -127,22 +127,21 @@ Commands
 <div class="highlight-python"><div class="highlight"><pre>$ virtualenv .
 $ . ./bin/activate
 $ pip install -r requirements.txt
+$ fab init
+Initializing repo
+    Installing node modules ...
+    Compiling coffee scripts ...
+    Initializing sencha framework ...
+    Building application ...
+
+Done.
 </pre></div>
 </div>
-</div>
-<div class="section" id="extjs-framework-setup">
-<h3>ExtJS Framework Setup<a class="headerlink" href="#extjs-framework-setup" title="Permalink to this headline">¶</a></h3>
-<p>Due to the size of the <a class="reference external" href="https://www.sencha.com/products/extjs/">ExtJS</a> framework, we don&#8217;t include it in the repository.  Use <a class="reference external" href="https://www.sencha.com/products/extjs/#sencha-cmd">Sencha Command</a> to
-create a initial empty app.  To do so. cd into the repo and:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ grunt coffee
-$ sencha generate app -ext AppTemplate static
-</pre></div>
-</div>
-<p>This will populate the <cite>static/ext</cite> directory with the needed framework files.</p>
+<p>This needs to be done only <strong>once</strong>.</p>
 </div>
 </div>
-<div class="section" id="first-build">
-<h2>First Build<a class="headerlink" href="#first-build" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="build-application">
+<h2>Build Application<a class="headerlink" href="#build-application" title="Permalink to this headline">¶</a></h2>
 <p>Always activate the <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>!</p>
 <p>Change directory to the repo dir and do:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ . ./bin/activate
@@ -177,10 +176,9 @@ Done.
 <li><a class="reference internal" href="#installing-prerequisites">Installing Prerequisites</a></li>
 <li><a class="reference internal" href="#clone-template-first-time-setup">Clone Template, First Time Setup</a><ul>
 <li><a class="reference internal" href="#setup-project-directory">Setup project directory</a></li>
-<li><a class="reference internal" href="#extjs-framework-setup">ExtJS Framework Setup</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#first-build">First Build</a></li>
+<li><a class="reference internal" href="#build-application">Build Application</a></li>
 </ul>
 </li>
 </ul>
