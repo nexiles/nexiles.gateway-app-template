@@ -29,7 +29,7 @@ the tool.  Pleas make sure to use ExtJs_ version **5.x**.  On my machine, `sench
 output::
 
 	$ sencha
-	Sencha Cmd v5.1.3.61
+	Sencha Cmd v6.0.0.202
 	Sencha Cmd provides several categories of commands and some global switches. In
 	most cases, the first step is to generate an application based on a Sencha SDK
 	such as Ext JS or Sencha Touch:
@@ -88,13 +88,24 @@ output::
 Clone Template, First Time Setup
 --------------------------------
 
+Setup project directory
+~~~~~~~~~~~~~~~~~~~~~~~
+
 Clone the template repository, cd into the repo and do::
 
 	$ virtualenv .
 	$ . ./bin/activate
 	$ pip install -r requirements.txt
 
-XXX: Sencha Initialization Missing
+ExtJS Framework Setup
+~~~~~~~~~~~~~~~~~~~~~
+
+Due to the size of the ExtJS_ framework, we don't include it in the repository.  Use `Sencha Command`_ to
+create a initial empty app.  To do so. cd into the repo and::
+
+	$ sencha generate app -ext AppTemplate static
+
+This will populate the `static/ext` directory with the needed framework files.
 
 First Build
 -----------

@@ -1,5 +1,10 @@
 {
     /**
+     * The toolkit to use. Select either "classic" or "modern".
+     */
+    "toolkit": "classic",
+
+    /**
      * The application's namespace.
      */
     "name": "AppTemplate",
@@ -45,6 +50,7 @@
      *      ]
      */
     "requires": [
+        "ux"
     ],
 
     /**

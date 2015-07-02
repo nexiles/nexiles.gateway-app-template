@@ -6,7 +6,8 @@ Change Log
 0.2.0 - unreleased
 ------------------
 
-No changes yet.
+- Switch to ExtJS 6 to make installation procedure easier.
+- Added ExtJS installation steps in the quick install chapters.
 
 0.1.0 - 2015-07-01
 ------------------
