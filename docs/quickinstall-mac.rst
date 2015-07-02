@@ -103,6 +103,7 @@ ExtJS Framework Setup
 Due to the size of the ExtJS_ framework, we don't include it in the repository.  Use `Sencha Command`_ to
 create a initial empty app.  To do so. cd into the repo and::
 
+	$ grunt coffee
 	$ sencha generate app -ext AppTemplate static
 
 This will populate the `static/ext` directory with the needed framework files.
