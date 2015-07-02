@@ -12,6 +12,6 @@ app.js.map
 node_modules
 gateway-app-template.sublime-workspace
 static/app
+static/sass/
 *.pyc
-static/sass/example/bootstrap.json
 _build
