@@ -28,3 +28,26 @@ Please make sure to check the docs using::
 	$ fab docs
 
 Look for warnings in the console, and visually check formatting.
+
+Updating the Windchill App Template
+-----------------------------------
+
+To iterate (build, pack, upload) the Windchill app template which `nexiles.tools.api`_ uses
+by default, do::
+
+	$ workon nexiles.gateway-app-template
+	$ fab build:which=windchill
+
+This will:
+
+- Perform a *production* build
+- Assemble the built styles, ExtJS and Ext.ux to `static/build/windchill/AppTemplate`
+- Create a `app-meta.json` using the current version
+- Pack the app using `nxtools app pack`
+- Upload the app using `nxtools app upload`
+
+.. attention::  The app template uses a special `index.html` template which is
+   copied from `static/index_windchill.html`
+
+
+.. _nexiles.tools.api: http://nexiles.github.io/nexiles.tools.api

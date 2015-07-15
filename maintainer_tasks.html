@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Maintainer Tasks &mdash; nexiles.gateway app template 0.3.0 build 45 date 2015-7-2 documentation</title>
+    <title>Maintainer Tasks &mdash; nexiles.gateway app template 0.4.0dev build 66 date 2015-7-15 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.3.0 build 45 date 2015-7-2',
+        VERSION:     '0.4.0dev build 66 date 2015-7-15',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="nexiles.gateway app template 0.3.0 build 45 date 2015-7-2 documentation" href="index.html" />
+    <link rel="top" title="nexiles.gateway app template 0.4.0dev build 66 date 2015-7-15 documentation" href="index.html" />
     <link rel="next" title="License" href="license.html" />
     <link rel="prev" title="Development" href="development.html" />
    
@@ -62,6 +62,28 @@ $ fab docs
 </div>
 <p>Look for warnings in the console, and visually check formatting.</p>
 </div>
+<div class="section" id="updating-the-windchill-app-template">
+<h2>Updating the Windchill App Template<a class="headerlink" href="#updating-the-windchill-app-template" title="Permalink to this headline">¶</a></h2>
+<p>To iterate (build, pack, upload) the Windchill app template which <a class="reference external" href="http://nexiles.github.io/nexiles.tools.api">nexiles.tools.api</a> uses
+by default, do:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ workon nexiles.gateway-app-template
+$ fab build:which=windchill
+</pre></div>
+</div>
+<p>This will:</p>
+<ul class="simple">
+<li>Perform a <em>production</em> build</li>
+<li>Assemble the built styles, ExtJS and Ext.ux to <cite>static/build/windchill/AppTemplate</cite></li>
+<li>Create a <cite>app-meta.json</cite> using the current version</li>
+<li>Pack the app using <cite>nxtools app pack</cite></li>
+<li>Upload the app using <cite>nxtools app upload</cite></li>
+</ul>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">The app template uses a special <cite>index.html</cite> template which is
+copied from <cite>static/index_windchill.html</cite></p>
+</div>
+</div>
 </div>
 
 
@@ -78,6 +100,7 @@ $ fab docs
 <li><a class="reference internal" href="#">Maintainer Tasks</a><ul>
 <li><a class="reference internal" href="#abstract">Abstract</a></li>
 <li><a class="reference internal" href="#pushing-documentation-to-github">Pushing Documentation to GitHub</a></li>
+<li><a class="reference internal" href="#updating-the-windchill-app-template">Updating the Windchill App Template</a></li>
 </ul>
 </li>
 </ul>
