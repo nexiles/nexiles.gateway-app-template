@@ -1,4 +1,5 @@
 import os
+import json
 
 import webbrowser
 import SocketServer
@@ -30,6 +31,10 @@ if not os.path.exists(ext_sdk_dir):
     ext_sdk_dir = None
 
 
+APP_VERSION = json.loads(file(
+    os.path.join(static_dir, "resources", "version.json")).read())
+
+
 ######################################################################
 # Package Maintainer Tasks
 ######################################################################
@@ -45,6 +50,64 @@ def release_docs():
             local("make gh_pages")
             local("make gh_pages_sync")
 
+######################################################################
+# Windchill App Template Building
+######################################################################
+
+@task
+def build_app_template():
+    "build the windchill app template package"
+
+    # So the production build ran through, and we need to manually
+    # assemble the app template build because sencha command does not
+    # support non-microloader builds.
+
+    dest_dir = os.path.join(static_dir, "build", "windchill", APP_NAME, "static")
+    local("mkdir -p {}".format(dest_dir))
+
+    with lcd(dest_dir):
+        # copy production resources
+        local("cp -r {}/build/production/{}/resources .".format(static_dir, APP_NAME))
+
+        # copy built app sources (actually this is done by grunt also)
+        local("cp -r {}/app .".format(static_dir))
+        local("cp    {}/app.js .".format(static_dir))
+        local("cp    {}/app.json .".format(static_dir))
+
+        # assemble ext directory
+        local("mkdir -p ext/ux")
+        local("cp    {}/ext/build/ext-all.js ext".format(static_dir))
+        local("cp -r {}/ext/packages/ux/classic/src/* ext/ux".format(static_dir))
+
+        # copy start html for template mode
+        local("cp    {}/index_windchill.html index.html".format(static_dir))
+
+        # copy the default icon
+        local("cp    {}/_static/iconmonstr-wrench-6-icon-128.png resources/images".format(docs_dir))
+
+        app_meta = {
+            "version":      "{version}".format(**APP_VERSION),
+            "thumbnail":    "resources/images/iconmonstr-wrench-6-icon-128.png",
+            "app-url":      "index.html",
+            "name":         APP_NAME,
+            "description":  APP_NAME
+        }
+        with file(os.path.join(dest_dir, "app-meta.json"), "w") as appmeta:
+            appmeta.write(json.dumps(app_meta, indent=4))
+
+
+@task
+def iterate_template_app():
+    execute(build_app_template)
+    app_dir = os.path.join(static_dir, "build", "windchill", APP_NAME)
+    with lcd(app_dir):
+        local("nxtools app-pack   --name template")
+        local("nxtools app-upload --name template")
+
+@task
+def full_monty_template():
+    execute(build, which="windchill")
+    execute(iterate_template_app)
 
 ######################################################################
 # Developer Tasks
@@ -70,7 +133,7 @@ def init():
             else:
                 print(yellow("    SDK directory not configured, "
                              "using TRIAL VERSION of ExtJS"))
-                local("sencha generate app -ext {} static".format(APP_NAME))
+                local("sencha generate app -ext -classic {} static".format(APP_NAME))
 
         with lcd(static_dir):
             print(green("    Building application ..."))
@@ -110,10 +173,21 @@ def build(which="production"):
             local("npm install")
             print(green("   compiling CoffeScript ..."))
             local("grunt coffee")
+            local("grunt copy")
+
+        # if the build type is "windchill", we do a production build and
+        # delegate to a special windchill build task
+        windchill_build = False
+        if which == "windchill":
+            which = "production"
+            windchill_build = True
+
         with lcd(static_dir):
             print(green("   building app ..."))
             local("sencha app build {}".format(which))
 
+        if windchill_build:
+            execute(build_app_template)
 
 @task
 def package(which="production"):

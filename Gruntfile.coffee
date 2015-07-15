@@ -34,8 +34,19 @@ module.exports = (grunt) ->
                 ]
                 tasks: [
                     "coffee"
+                    "copy"
                     "bump_version"
                 ]
+
+        copy:
+            wttemplate:
+                files: [
+                    cwd:    "static"
+                    src:    ["app.json", "app.js", "app/*.js", "app/**/*.js"]
+                    dest:   "static/build/windchill/#{application_name}/static"
+                    expand: yes
+                ]
+
 
         # coffee compile task
         coffee:
@@ -57,7 +68,7 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks "grunt-notify"
 
     grunt.registerTask "default", ["watch"]
-    grunt.registerTask "build",   ["coffee", "sencha"]
+    grunt.registerTask "build",   ["coffee", "copy", "sencha"]
 
     grunt.registerTask "version", "show the web app version", ->
         version_file = grunt.config.get "cfg.version_file"

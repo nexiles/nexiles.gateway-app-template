@@ -6,7 +6,7 @@ Change Log
 0.4.0 - unreleased
 ------------------
 
-No changes yet.
+- `windchill` build target to create a nexiles app template in Windchill
 
 0.3.0 - 2015-07-02
 ------------------

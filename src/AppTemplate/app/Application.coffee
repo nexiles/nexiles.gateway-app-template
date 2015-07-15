@@ -4,6 +4,14 @@
 # details.
 ###
 
+if window.template
+  console.debug "**** TEMPLATE MODE ****"
+  Ext.Loader.setConfig
+    disableCaching: no
+    paths:
+      AppTemplate: "app"
+      "Ext.ux": "ext/ux"
+
 Ext.define 'AppTemplate.Application',
   extend: 'Ext.app.Application'
   requires: [

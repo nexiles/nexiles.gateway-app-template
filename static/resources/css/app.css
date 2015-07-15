@@ -1,1 +1,10 @@
 /* app styles */
+
+.x-panel-body-default {
+	border-width: 0px;
+}
+
+.x-toolbar {
+	border-width: 0px;
+
+}
