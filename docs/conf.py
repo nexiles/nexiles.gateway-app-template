@@ -123,6 +123,8 @@ html_theme_options = {
     "github_repo": "nexiles.gateway-app-template",
     "github_banner": True,
     "logo": "iconmonstr-wrench-6-icon-256.png",
+    "font_family": "'Source Sans Pro', sans-serif;",
+    "head_font_family": "'Source Sans Pro', sans-serif;",
     "logo_name": True,
 }
 
