@@ -19,3 +19,7 @@ static/Readme.md
 *.pyc
 _build
 .DS_Store
+bin
+lib
+include
+.Python
