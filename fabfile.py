@@ -128,7 +128,7 @@ def init():
 
             print(green("    Initializing sencha framework ..."))
             if ext_sdk_dir:
-                local("sencha -sdk {} generate app -ext {} static".format(
+                local("sencha -sdk {} generate app -ext -classic {} static".format(
                     ext_sdk_dir, APP_NAME))
             else:
                 print(yellow("    SDK directory not configured, "

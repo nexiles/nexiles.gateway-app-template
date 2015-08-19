@@ -25,7 +25,7 @@ Python packages::
 	$ pip install virtualenv
 
 ExtJs_ -- we need `Sencha Command`_ to build apps.  Please follow the instructions there to install
-the tool.  Pleas make sure to use ExtJs_ version **5.x**.  On my machine, `sencha` gives me the following
+the tool.  Pleas make sure to use ExtJs_ version **6.x**.  On my machine, `sencha` gives me the following
 output::
 
 	$ sencha
@@ -84,6 +84,14 @@ output::
 	  * upgrade - Upgrades Sencha Cmd
 	  * which - Displays the path to the current version of Sencha Cmd
 
+Nexiles ExtJs widgets
+~~~~~~~~~~~~~~~~~~~~~
+
+Because this template uses the nexiles theme, we need to add the `nexiles ext package repository`_.  This needs
+to be done only once::
+
+	$ sencha package repo add nexiles http://developer.nexiles.com/packages/ext
+
 
 Clone Template, First Time Setup
 --------------------------------
@@ -127,6 +135,7 @@ Change directory to the repo dir and do::
 	Done.
 
 
+.. _nexiles ext package repository: http://nexiles.github.io/nexiles.ext.widgets/
 .. _Homebrew: http://brew.sh/
 .. _Node: https://nodejs.org/
 .. _virtualenv: https://virtualenv.pypa.io/en/latest/
