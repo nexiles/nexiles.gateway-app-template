@@ -6,6 +6,10 @@ Change Log
 0.4.0 - unreleased
 ------------------
 
+- Added missing instructions and ref on how to add the nexiles package repository.  This
+  fixes first-time installation failures due to nexiles theme package not found.
+- Specify `classic` parameter in app creation.  On ext 6.0 normally a classic/touch
+  mixed app is built which is not what we want.
 - `windchill` build target to create a nexiles app template in Windchill
 
 0.3.0 - 2015-07-02

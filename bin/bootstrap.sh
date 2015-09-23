@@ -5,7 +5,7 @@ test -x "$ROOT/bin/python" || {
 	(
 		cd $ROOT
 		virtualenv .
-		./bin/pip install -r requirements.txt
+		./bin/pip install -r requirements.txt --build-dir $ROOT/.pip_build
 	)
 }
 
