@@ -123,6 +123,14 @@ output::
 	  * upgrade - Upgrades Sencha Cmd
 	  * which - Displays the path to the current version of Sencha Cmd
 
+Nexiles ExtJs widgets
+~~~~~~~~~~~~~~~~~~~~~
+
+Because this template uses the nexiles theme, we need to add the `nexiles ext package repository`_.  This needs
+to be done only once::
+
+	C:> sencha package repo add nexiles http://developer.nexiles.com/packages/ext
+
 
 Clone Template, First Time Setup
 --------------------------------
@@ -143,10 +151,11 @@ ExtJS Framework Setup
 ~~~~~~~~~~~~~~~~~~~~~
 
 Due to the size of the ExtJS_ framework, we don't include it in the repository.  Use `Sencha Command`_ to
-create a initial empty app.  To do so. cd into the repo and::
+create a initial empty app.  To do so, cd into the repo and::
 
 	C:> grunt coffee
-	C:> sencha generate app -ext AppTemplate static
+	C:> grunt coffee
+	C:> sencha generate app -classic -ext AppTemplate static
 
 This will populate the `static/ext` directory with the needed framework files.
 
@@ -162,6 +171,7 @@ Change directory to the repo dir and do::
 	C:> grunt build
 
 
+.. _nexiles ext package repository: http://nexiles.github.io/nexiles.ext.widgets/
 .. _Chokolatey: https://chocolatey.org/
 .. _GOW: https://github.com/bmatzelle/gow/wiki
 .. _virtualenv: https://virtualenv.pypa.io/en/latest/
