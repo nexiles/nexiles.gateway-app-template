@@ -1,20 +1,51 @@
-<!DOCTYPE HTML>
-<html manifest="">
-	<head>
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <meta charset="UTF-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@2.14.2/dist/quasar.prod.css" rel="stylesheet" type="text/css">
+  </head>
 
-	    <title>AppTemplate</title>
-	    <script type="text/javascript">
-	    	window.template = true;
-	    </script>
+  <body>
+    <!-- example of injection point where you write your app template -->
+    <div id="q-app"></div>
 
-	    <!-- The line below must be kept intact for Sencha Cmd to build your application -->
-	    <script id="microloader" type="text/javascript" src="bootstrap.js"></script>
-	    <link rel="stylesheet" type="text/css" href="resources/css/app.css" />
-	</head>
-	<body>
-			<script>document.write('<script src="http://' + 'localhost' + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-	</body>
+    <!-- Add the following at the end of your body tag -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@2.14.2/dist/quasar.umd.prod.js"></script>
+
+    <script type="module">
+	 import { loadModule } from 'https://cdn.jsdelivr.net/npm/vue3-sfc-loader@0.9.0/dist/vue3-sfc-loader.esm.js'
+
+	 const options = {
+		 moduleCache: {
+			 vue: Vue,
+			 quasar: Quasar
+		 },
+		 getFile(url) {
+			 console.debug("getFile: url=", url);
+
+			 return fetch(url).then(response => response.ok ? response.text() : Promise.reject(response));
+		 },
+		 addStyle(textContent) {
+
+			 const style = Object.assign(document.createElement('style'), { textContent });
+			 const ref = document.head.getElementsByTagName('style')[0] || null;
+			 document.head.insertBefore(style, ref);
+		 },
+
+		 log(type, ...args) {
+			 console.log(type, ...args);
+		 }
+     }
+
+     /*
+        Example kicking off the UI. Obviously, adapt this to your specific needs.
+        Assumes you have a <div id="q-app"></div> in your <body> above
+      */
+	 const app = Vue.createApp(Vue.defineAsyncComponent(() => loadModule("./app.vue", options)))
+     // app.use(router)
+     app.use(Quasar)
+     app.mount('#q-app')
+    </script>
+  </body>
 </html>
