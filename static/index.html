@@ -21,13 +21,13 @@
 			 vue: Vue,
 			 quasar: Quasar
 		 },
+
 		 getFile(url) {
 			 console.debug("getFile: url=", url);
-
 			 return fetch(url).then(response => response.ok ? response.text() : Promise.reject(response));
 		 },
-		 addStyle(textContent) {
 
+		 addStyle(textContent) {
 			 const style = Object.assign(document.createElement('style'), { textContent });
 			 const ref = document.head.getElementsByTagName('style')[0] || null;
 			 document.head.insertBefore(style, ref);
@@ -43,7 +43,6 @@
         Assumes you have a <div id="q-app"></div> in your <body> above
       */
 	 const app = Vue.createApp(Vue.defineAsyncComponent(() => loadModule("./app.vue", options)))
-     // app.use(router)
      app.use(Quasar)
      app.mount('#q-app')
     </script>

@@ -2,8 +2,8 @@ import os
 import json
 
 import webbrowser
-import SocketServer
-import SimpleHTTPServer
+# import socketserver
+# import SimpleHTTPServer
 
 from fabric.api import task
 from fabric.api import execute
@@ -31,8 +31,8 @@ if not os.path.exists(ext_sdk_dir):
     ext_sdk_dir = None
 
 
-APP_VERSION = json.loads(file(
-    os.path.join(static_dir, "resources", "version.json")).read())
+APP_VERSION = json.loads(open(
+    os.path.join(static_dir, "resources", "version.json"), "r").read())
 
 
 ######################################################################
@@ -66,33 +66,17 @@ def build_app_template():
     local("mkdir -p {}".format(dest_dir))
 
     with lcd(dest_dir):
-        # copy production resources
-        local("cp -r {}/build/production/{}/resources .".format(static_dir, APP_NAME))
-
         # copy built app sources (actually this is done by grunt also)
-        local("cp -r {}/app .".format(static_dir))
-        local("cp    {}/app.js .".format(static_dir))
-        local("cp    {}/app.json .".format(static_dir))
-
-        # assemble ext directory
-        local("mkdir -p ext/ux")
-        local("cp    {}/ext/build/ext-all.js ext".format(static_dir))
-        local("cp -r {}/ext/packages/ux/classic/src/* ext/ux".format(static_dir))
-
-        # copy start html for template mode
-        local("cp    {}/index_windchill.html index.html".format(static_dir))
-
-        # copy the default icon
-        local("cp    {}/_static/iconmonstr-wrench-6-icon-128.png resources/images".format(docs_dir))
+        local("cp -r {}/* .".format(static_dir))
 
         app_meta = {
             "version":      "{version}".format(**APP_VERSION),
-            "thumbnail":    "resources/images/iconmonstr-wrench-6-icon-128.png",
+            "thumbnail":    "resources/img/ilogo.png",
             "app-url":      "index.html",
             "name":         APP_NAME,
             "description":  APP_NAME
         }
-        with file(os.path.join(dest_dir, "app-meta.json"), "w") as appmeta:
+        with open(os.path.join(dest_dir, "app-meta.json"), "w") as appmeta:
             appmeta.write(json.dumps(app_meta, indent=4))
 
 
@@ -140,19 +124,19 @@ def init():
             local("sencha app build".format(APP_NAME))
 
 
-@task
-def serve(port=8000, production=False):
-    "Serves the app locally for testing"
-    Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
-    httpd = SocketServer.TCPServer(("", port), Handler)
-    webbrowser.open("http://localhost:{}".format(port))
-    if not production:
-        print(green("Serving DEVELOPMENT on http://localhost:{}".format(port)))
-        os.chdir(static_dir)
-    else:
-        print(green("Serving PRODUCTION on http://localhost:{}".format(port)))
-        os.chdir(os.path.join(static_dir, "build", "production", APP_NAME))
-    httpd.serve_forever()
+# @task
+# def serve(port=8000, production=False):
+#     "Serves the app locally for testing"
+#     Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
+#     httpd = SocketServer.TCPServer(("", port), Handler)
+#     webbrowser.open("http://localhost:{}".format(port))
+#     if not production:
+#         print(green("Serving DEVELOPMENT on http://localhost:{}".format(port)))
+#         os.chdir(static_dir)
+#     else:
+#         print(green("Serving PRODUCTION on http://localhost:{}".format(port)))
+#         os.chdir(os.path.join(static_dir, "build", "production", APP_NAME))
+#     httpd.serve_forever()
 
 
 @task(default=True)

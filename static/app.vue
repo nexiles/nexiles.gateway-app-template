@@ -1,9 +1,6 @@
-<script setup>
+<script setup lang="ts">
  import { useQuasar } from 'quasar'
-
- import MyComponent from './components/SimpleCounter.vue'
  import MainPage from "./pages/MainPage.vue";
-
  const $q = useQuasar()
 </script>
 
@@ -17,7 +14,7 @@
           <q-avatar>
             <img src="resources/img/logo.png">
           </q-avatar>
-          nexiles|gateway app demo
+          Hello
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
@@ -27,7 +24,7 @@
     </q-page-container>
 
     <q-footer elevated class="bg-light-green-6 text-white">
-        hello
+        zonk
     </q-footer>
 
   </q-layout>
