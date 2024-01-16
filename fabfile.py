@@ -71,7 +71,7 @@ def build_app_template():
 
         app_meta = {
             "version":      "{version}".format(**APP_VERSION),
-            "thumbnail":    "resources/img/ilogo.png",
+            "thumbnail":    "resources/img/logo.png",
             "app-url":      "index.html",
             "name":         APP_NAME,
             "description":  APP_NAME
